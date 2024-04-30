@@ -1,0 +1,102 @@
+<div class="container overflow-auto">
+    <mat-tab-group animationDuration="0ms" class="pt-5" [(selectedIndex)]="selectedTab">
+        <mat-tab label="Quiz Info">
+            <form 
+                #quizInfoForm="ngForm" 
+                novalidate
+                class="mt-5"
+                (ngSubmit)="onSubmitQuizInfo(quizInfoForm)"
+            >
+                <mat-card class="mb-5" appearance="outlined">
+                    <mat-card-content>
+                        <div class="row">
+                            <mat-form-field class="field-35-width mt-3">
+                                <mat-label>Quiz Title</mat-label>
+                                <input 
+                                    matInput 
+                                    #title="ngModel"
+                                    title="title"
+                                    [(ngModel)]="quiz.title"
+                                    [ngModelOptions]="{standalone: true}"
+                                    >
+                            </mat-form-field>
+                            <mat-form-field class="field-100-width">
+                                <mat-label>Description</mat-label>
+                                <input 
+                                    matInput 
+                                    #description="ngModel"
+                                    desciription="desciription"
+                                    [ngModelOptions]="{standalone: true}"
+                                    [(ngModel)]="quiz.description">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <div class="d-flex justify-content-end mb-5">
+                    <button mat-raised-button color="primary" type="submit">
+                        Submit Quiz Info
+                    </button>
+                </div>
+            </form>
+        </mat-tab>
+        <mat-tab label="Questions" *ngIf="isQuizCreated">
+            <form class="add-lessons-form" [formGroup]="questionForm" (ngSubmit)="onSubmitQuestions()" class="mt-5">
+                <mat-card appearance="raised" class="mb-5" formArrayName="questions" *ngFor="let questionForm of questions.controls; let i = index">
+                    <mat-card-content>
+                        <div [formGroupName]="i" >
+                            <mat-form-field class="field-full-width mt-4">
+                                <input matInput formControlName="prompt" placeholder="Question {{i + 1}}" id="{{'prompt'+i}}">
+                            </mat-form-field>
+                            
+                            <div formArrayName="options">
+                                <div  
+                                    *ngFor="let option of getOptions(i).controls; let optionIndex=index"
+                                >
+                                    <mat-form-field class="field-35-width">
+                                        <mat-label >Option {{optionIndex}}</mat-label>
+                                        <input matInput placeholder="Option {{i}}" formControlName='{{optionIndex}}' id="{{'option-1-'+i}}">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-row-reverse align-content-end">
+
+                                <button mat-icon-button (click)="deleteLesson(i)">
+                                    <mat-icon color="warn">delete</mat-icon>
+                                </button>
+                                <!-- <mat-icon class="delete-btn" (click)="deleteLesson(i)" style="color: wheat">
+                                    delete_forever</mat-icon> -->
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Correct Answer</mat-label>
+                                    <mat-select matNativeControl required formControlName="answer"
+                                        >
+
+                                        <mat-option
+                                            *ngFor="let option of getOptions(i).controls; let _optionIndex=index"
+                                            [value]="_optionIndex"
+                                        >
+                                            {{option.value}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                    <div class="d-flex justify-content-between mb-10">
+                        <div class="p-2">
+                            <a mat-mini-fab (click)="addQuestion()">
+                                <mat-icon class="add-course-btn">add</mat-icon>
+                            </a>
+                        </div>
+                        <div *ngIf="questions.length > 0" class="p-2">
+                            <button mat-raised-button color="primary" type="submit">
+                                Submit Questions
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </mat-tab>
+    </mat-tab-group>
+</div>

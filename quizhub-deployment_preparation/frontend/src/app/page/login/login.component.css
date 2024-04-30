@@ -1,0 +1,18 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  padding: 20px;
+}
+
+mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+mat-card-title{
+  display: flex;
+  justify-content: left;
+  font-size: 22px;
+  padding-left: 17px;
+}

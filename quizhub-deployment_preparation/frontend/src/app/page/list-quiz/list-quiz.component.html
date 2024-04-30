@@ -1,0 +1,18 @@
+<div class="container overflow-auto ">
+    <mat-card *ngFor="let quiz of (quizs)" class="mt-3 bg-light p-5">
+        <div (click)="toDoQuizPage(quiz._id, quiz.title)">
+            <mat-card-title>
+                {{quiz.title}}
+            </mat-card-title>
+
+            <mat-card-subtitle class="text-success">
+                {{quiz.description}}
+            </mat-card-subtitle>
+
+            <mat-card-subtitle class="text-success d-flex flex-row-reverse ">
+                by {{quiz.author}}
+            </mat-card-subtitle>
+        </div>
+    </mat-card>
+
+</div>

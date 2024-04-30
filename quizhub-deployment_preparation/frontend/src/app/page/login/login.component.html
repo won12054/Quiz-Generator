@@ -1,0 +1,32 @@
+<main class="container">
+  <div class="row mt-5">
+    <mat-card appearance="raised">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="authenticate(loginForm)">
+          <mat-error *ngIf="errorMessage">
+            {{errorMessage}}
+          </mat-error>
+          <div class="col-12">
+            <mat-form-field class="">
+              <input matInput placeholder="User Name" [(ngModel)]="user.username" name="username" required>
+              <mat-error>
+                Please provide an username
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="Password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+              <mat-error>
+                Please provide a valid password
+              </mat-error>
+            </mat-form-field>
+            <div class="d-flex">
+              <button mat-raised-button color="primary">Login</button>
+              <a routerLink="/register" class="btn btn-link">Register</a>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</main>

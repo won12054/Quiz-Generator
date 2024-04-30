@@ -1,0 +1,78 @@
+<!-- Main Navigation-->
+<div>
+  <div *ngIf="isCollaspeMenuDisplay" id="navbarToggleExternalContent">
+    <div class="bg-dark p-3">
+        <div class="d-flex justify-content-between align-content-center mb-3">
+          <div *ngIf='isloggedIn()'
+              style="color: aliceblue; line-height: 2;">
+            <i class="fas fa-lg fa-user"></i> Welcome, {{ user?.username }}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-left align-content-center mb-3">
+            <div *ngIf='isloggedIn()' class="nav-item">
+                <button mat-raised-button color="primary" (click)="toManagePage()">Manage Quiz</button>
+            </div>
+          <div *ngIf='isloggedIn()' class="nav-item px-2">
+              <button class="btn btn-outline-primary" (click)="toCreatePage()">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Create Another Quiz
+              </button>
+          </div>
+        </div>
+        
+        <div *ngIf='isloggedIn()' class="nav-item d-flex justify-content-left">
+            <button mat-raised-button color="accent" (click)="logout()">
+                <i class="fas fa-lg fa-sign-out-alt"></i>
+                <span style="padding-left: 10px;">Log out</span>
+            </button>
+        </div>
+        <div *ngIf='!isloggedIn()' class="nav-item">
+            <button mat-raised-button color="accent" routerLink="/login">
+                <i class="fas fa-lg fa-sign-in-alt"></i>
+                <span style="padding-left: 10px;">Login</span>
+            </button>
+          </div>
+    </div>
+  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+  <a class="d-flex flew-row align-content-center" routerLink="/">
+    <img src='/assets/image/logo2.jpeg' style="width:100px">
+    <div class="navbar-brand font-weight-bold" style="padding: 12px;">Quizber</div>
+  </a>
+   <button class="navbar-toggler" type="button" (click)="collapse()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto">         
+          <li *ngIf='isloggedIn()'
+            class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline px-2">
+          <i class="fas fa-lg fa-user"></i> Welcome, {{ user?.username }}
+        </li>
+        <li *ngIf='!isloggedIn()' class="nav-item px-2">
+            <button mat-raised-button color="accent" routerLink="/login">
+                <i class="fas fa-lg fa-sign-in-alt"></i>
+                <span style="padding-left: 10px;">Login</span>
+            </button>
+        </li>
+        <li *ngIf='isloggedIn()' class="nav-item">
+            <button class="btn btn-outline-secondary" (click)="toCreatePage()">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              Create Another Quiz
+            </button>
+        </li>
+        <li *ngIf='isloggedIn()' class="nav-item px-2">
+            <button mat-raised-button color="primary" (click)="toManagePage()">Manage Quiz</button>
+
+        </li>
+        <li *ngIf='isloggedIn()' class="nav-item">
+            <button mat-raised-button color="accent" (click)="logout()">
+                <i class="fas fa-lg fa-sign-out-alt"></i>
+                <span style="padding-left: 10px;">Log out</span>
+            </button>
+        </li>
+    </ul>
+  </div>
+</nav>
+</div>

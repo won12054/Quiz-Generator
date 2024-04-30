@@ -1,0 +1,42 @@
+[
+    {
+        "_id": "6430ba37e0f3b115e7d4d698",
+        "quizId": "6414d428080477189b55c441",
+        "prompt": "Are you happy",
+        "options": [
+            "Yes,",
+            "No,",
+            "Very Happy,",
+            "Very Sad,"
+        ],
+        "answer": 2,
+        "__v": 0
+    },
+    {
+        "_id": "6430ba37e0f3b115e7d4d698",
+        "quizId": "6414d428080477189b55c441",
+        "prompt": "Are you happy2",
+        "options": [
+            "Yes2,",
+            "No2,",
+            "Very Happy2,",
+            "Very Sad2,"
+        ],
+        "answer": 2,
+        "__v": 0
+    },
+    {
+        "_id": "6430ba37e0f3b115e7d4d698",
+        "quizId": "6414d428080477189b55c441",
+        "prompt": "Are you happy3",
+        "options": [
+            "Yes3,",
+            "No3,",
+            "Very Happy3,",
+            "Very Sad3,"
+        ],
+        "answer": 1,
+        "__v": 0
+    }
+
+]

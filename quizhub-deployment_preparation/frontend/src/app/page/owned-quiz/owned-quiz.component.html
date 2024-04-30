@@ -1,0 +1,42 @@
+<div *ngIf="quizs.length == 0"> Not Quiz Created </div>
+
+<div class="container overflow-auto mt-5" *ngIf="quizs.length > 0">
+    <table mat-table [dataSource]="quizs">
+
+        <!-- _id Column -->
+        <ng-container matColumnDef="_id">
+            <th mat-header-cell *matHeaderCellDef>Quiz ID</th>
+            <td mat-cell *matCellDef="let row">{{row._id}}</td>
+        </ng-container>
+        <!-- title Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let row">{{row.title}}</td>
+        </ng-container>
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef>Author</th>
+            <td mat-cell *matCellDef="let row">{{row.author}}</td>
+        </ng-container>
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="toEditPage(row)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="delteQuiz(row._id)">
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+

@@ -1,0 +1,10 @@
+.start-button{
+    width: 15%;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .start-button{
+        width: 100%
+    }
+}

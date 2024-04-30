@@ -1,0 +1,25 @@
+.question-card{
+    padding: 30px;
+}
+
+.question{
+    margin-bottom: 30px;
+}
+
+.option:hover{
+    border: 1px solid #6200FF!important
+}
+
+.option{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    font-size: 10px;
+    border: 0px;
+}
+
+.control-bar{
+    padding: 0px 30px 30px 30px;
+}

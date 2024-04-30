@@ -1,0 +1,16 @@
+.field-full-width{
+    width: 100%
+}
+
+.field-35-width{
+    width: 35%
+}
+
+.mat-mdc-card-content{
+    background-color: lightgrey;
+}
+@media only screen and (max-device-width: 480px) {
+    .field-35-width{
+        width: 100%
+    }
+}
